@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shawarma House – Photo gallery. A look inside our kitchen, our fire, and our food. Browse photos of shawarma, grills, mezze, and our team.">
+    <title>SHAWARMA HOUSE | Gallery – Photos from the Grill</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌯</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================
+           SHAWARMA HOUSE — GALLERY PAGE DESIGN SYSTEM
+           Same theme · Photo / Masonry layouts
+           ============================================================ */
+
+        :root {
+            --bg-main: #f6f2e9;
+            --bg-alt: #eee8db;
+            --bg-card: #ffffff;
+            --bg-deep: #1a3c34;
+            --text-main: #1b2620;
+            --text-muted: #5f6b64;
+            --text-on-deep: #f6f2e9;
+            --accent: #1a3c34;
+            --accent-hover: #245248;
+            --accent-soft: #e3efe9;
+            --gold: #d4a017;
+            --gold-hover: #b88a12;
+            --gold-soft: #fdf3d7;
+            --border: #ded6c8;
+            --border-deep: #2d5a4e;
+            --shadow-sm: 0 2px 12px rgba(27, 38, 32, 0.06);
+            --shadow-md: 0 10px 32px rgba(27, 38, 32, 0.10);
+            --shadow-lg: 0 22px 60px rgba(27, 38, 32, 0.16);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --radius-pill: 999px;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0d1714;
+            --bg-alt: #13221d;
+            --bg-card: #1a2c26;
+            --bg-deep: #0a1210;
+            --text-main: #eef5f1;
+            --text-muted: #94a89f;
+            --text-on-deep: #eef5f1;
+            --accent: #6ee7b7;
+            --accent-hover: #8af0c8;
+            --accent-soft: rgba(110, 231, 183, 0.10);
+            --gold: #f5c542;
+            --gold-hover: #f7d36b;
+            --gold-soft: rgba(245, 197, 66, 0.10);
+            --border: #243830;
+            --border-deep: #6ee7b7;
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.12; }
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== NAVBAR (SAME AS REFERENCE) ===== */
+        .navbar-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border 0.3s;
+        }
+
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.35rem 0;
+            gap: 1.5rem;
+        }
+
+        .logo { display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0; }
+
+        .logo-badge {
+            width: 44px; height: 44px;
+            background: var(--accent);
+            color: var(--bg-main);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.15rem;
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .logo-badge { color: #0d1714; }
+
+        .logo-text-block { display: flex; flex-direction: column; line-height: 1.05; }
+
+        .logo-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            letter-spacing: 0.04em;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+        .logo-title span { color: var(--gold); }
+
+        .logo-sub {
+            font-size: 0.52rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .desktop-nav { display: flex; align-items: center; gap: 1.4rem; }
+
+        .nav-link {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.25s;
+        }
+        .nav-link:hover { color: var(--text-main); }
+        .nav-link:hover::after { width: 100%; }
+
+        .home-dropdown { position: relative; }
+
+        .home-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: transparent;
+            color: var(--text-muted);
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.86rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .home-pill-btn:hover {
+            color: var(--text-main);
+            background: rgba(223, 160, 36, 0.08);
+            border-color: rgba(223, 160, 36, 0.25);
+        }
+        .home-pill-btn.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+            background: rgba(223, 160, 36, 0.12) !important;
+            border-color: rgba(223, 160, 36, 0.4) !important;
+        }
+        [data-theme="dark"] .home-pill-btn { color: var(--text-muted); }
+        [data-theme="dark"] .home-pill-btn:hover { color: var(--text-main); }
+        [data-theme="dark"] .home-pill-btn.active { color: #dfa024 !important; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.4rem;
+            min-width: 150px;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: all 0.2s;
+        }
+        .home-dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.15s;
+        }
+        .dropdown-item:hover { background: var(--accent-soft); color: var(--accent); }
+        .dropdown-item.active-item { color: var(--gold); font-weight: 800; }
+
+        .navbar-right { display: flex; align-items: center; gap: 0.6rem; }
+
+        .circle-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .circle-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+        .visit-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--gold);
+            color: #1b2620;
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 800;
+            transition: background 0.2s;
+        }
+        .visit-store-btn:hover { background: var(--gold-hover); }
+
+        .mobile-toggle {
+            display: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            color: var(--text-main);
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .mobile-toggle:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav { display: none !important; }
+            .navbar-right .visit-store-btn { display: none !important; }
+            .mobile-toggle { display: inline-flex !important; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 0.85rem !important; }
+            .navbar-flex { padding: 1.15rem 0 !important; gap: 0.45rem; flex-wrap: nowrap; }
+            .logo { gap: 0.5rem; min-width: 0; flex-shrink: 1; }
+            .logo-badge { width: 38px; height: 38px; min-width: 38px; font-size: 1.1rem; border-radius: 10px; }
+            .logo-text-block { min-width: 0; }
+            .logo-title { font-size: 1.22rem; letter-spacing: 0.01em; white-space: nowrap; }
+            .logo-sub { font-size: 0.56rem; letter-spacing: 0.1em; white-space: nowrap; }
+            .navbar-right { gap: 0.35rem; flex-shrink: 0; }
+            .circle-btn { width: 36px; height: 36px; min-width: 36px; font-size: 0.85rem; border-width: 1.5px; }
+            .mobile-toggle { width: 38px; height: 38px; min-width: 38px; font-size: 1.1rem; border-width: 1.5px; }
+        }
+
+        @media (max-width: 360px) {
+            .navbar-flex { padding: 1rem 0 !important; }
+            .logo-sub { display: none; }
+            .logo-title { font-size: 1.1rem; }
+            .circle-btn { width: 34px; height: 34px; min-width: 34px; }
+            .mobile-toggle { width: 36px; height: 36px; min-width: 36px; }
+        }
+
+        /* ===== MOBILE DRAWER ===== */
+        .mobile-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 18, 16, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 200;
+            backdrop-filter: blur(3px);
+        }
+        .mobile-backdrop.active { opacity: 1; visibility: visible; }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0; right: 0;
+            width: 320px;
+            max-width: 85vw;
+            height: 100%;
+            background: var(--bg-card);
+            z-index: 201;
+            padding: 1.5rem;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+        }
+        .mobile-drawer.active { transform: translateX(0); }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-links { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
+
+        .mobile-link-item {
+            display: block;
+            padding: 0.75rem 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ===== SHARED BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent);
+            color: var(--bg-main);
+            padding: 0.8rem 1.6rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.25s;
+        }
+        [data-theme="dark"] .btn-primary { color: #0d1714; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-icon-capsule {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-main);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--border);
+            transition: all 0.25s;
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ============================================================
+           GALLERY SECTION 1 — PAGE HERO
+           ============================================================ */
+        .gallery-hero {
+            position: relative;
+            background: var(--bg-deep);
+            color: var(--text-on-deep);
+            padding: 5rem 0 4.5rem;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .gallery-hero::before {
+            content: 'GALLERY';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(6rem, 22vw, 20rem);
+            color: rgba(212, 160, 23, 0.05);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .gallery-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .gallery-hero-label::before {
+            content: '';
+            width: 36px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .gallery-hero-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.8rem, 6.5vw, 5rem);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .gallery-hero-title .gold-word { color: var(--gold); }
+
+        .gallery-hero-desc {
+            font-size: 1.02rem;
+            color: rgba(246, 242, 233, 0.75);
+            line-height: 1.8;
+            max-width: 520px;
+            margin: 0 auto 2rem;
+        }
+
+        .gallery-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(246, 242, 233, 0.12);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .gallery-hero-stat strong {
+            display: block;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .gallery-hero-stat span {
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(246, 242, 233, 0.5);
+            margin-top: 0.35rem;
+            display: block;
+        }
+
+        /* ============================================================
+           GALLERY SECTION 2 — FILTER + MASONRY GRID
+           ============================================================ */
+        .gallery-grid-section {
+            padding: 4.5rem 0 5.5rem;
+            background: var(--bg-main);
+        }
+
+        .gallery-grid-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .gallery-grid-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1.02;
+        }
+
+        .gallery-grid-header p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            max-width: 400px;
+            line-height: 1.7;
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gallery-filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: all 0.25s;
+        }
+        .gallery-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .gallery-filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-main);
+        }
+        [data-theme="dark"] .gallery-filter-btn.active { color: #0d1714; }
+
+        .gallery-filter-btn i { font-size: 0.85rem; }
+
+        /* Masonry Grid */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 1rem;
+        }
+        @media (max-width: 1000px) {
+            .gallery-masonry { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 700px) {
+            .gallery-masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+        }
+        @media (max-width: 480px) {
+            .gallery-masonry { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(10, 18, 16, 0.85) 100%);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+        .gallery-item:hover::after { opacity: 1; }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.25rem;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.35s;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item-cat {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--gold);
+            color: #1b2620;
+            padding: 0.25rem 0.7rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.05rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .gallery-item-zoom {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.35s;
+        }
+        .gallery-item:hover .gallery-item-zoom {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Sizing variations */
+        .gallery-item.size-large { grid-column: span 2; grid-row: span 2; }
+        .gallery-item.size-tall { grid-row: span 2; }
+        .gallery-item.size-wide { grid-column: span 2; }
+
+        @media (max-width: 700px) {
+            .gallery-item.size-large { grid-column: span 2; grid-row: span 1; }
+            .gallery-item.size-tall { grid-row: span 1; }
+            .gallery-item.size-wide { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .gallery-item.size-large,
+            .gallery-item.size-wide { grid-column: span 1; }
+        }
+
+        .gallery-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+        .gallery-empty i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; display: block; }
+
+        /* ============================================================
+           GALLERY SECTION 3 — LIGHTBOX MODAL
+           ============================================================ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 18, 16, 0.94);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        .lightbox.active { opacity: 1; visibility: visible; }
+
+        .lightbox-inner {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lightbox-img-wrap {
+            position: relative;
+            flex: 1;
+            min-height: 0;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: #000;
+        }
+        .lightbox-img-wrap img {
+            width: 100%;
+            height: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            padding: 1.25rem 0 0;
+            text-align: center;
+            color: #fff;
+        }
+        .lightbox-caption h3 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        .lightbox-caption p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            z-index: 5;
+            transition: all 0.2s;
+        }
+        .lightbox-close:hover { background: var(--gold); color: #1b2620; border-color: var(--gold); }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            z-index: 5;
+            transition: all 0.2s;
+        }
+        .lightbox-nav:hover { background: var(--gold); color: #1b2620; border-color: var(--gold); }
+        .lightbox-nav.prev { left: -1rem; }
+        .lightbox-nav.next { right: -1rem; }
+
+        @media (max-width: 700px) {
+            .lightbox { padding: 1rem; }
+            .lightbox-nav.prev { left: 0.5rem; }
+            .lightbox-nav.next { right: 0.5rem; }
+            .lightbox-nav { width: 40px; height: 40px; }
+        }
+
+        /* ============================================================
+           GALLERY SECTION 4 — INSTAGRAM-STYLE FEED
+           ============================================================ */
+        .gallery-feed {
+            padding: 5rem 0;
+            background: var(--bg-alt);
+        }
+
+        .gallery-feed-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-feed-header .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.85rem;
+        }
+        .gallery-feed-header .section-label::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .gallery-feed-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1.02;
+        }
+
+        .gallery-feed-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0.85rem auto 0;
+            line-height: 1.75;
+        }
+
+        .gallery-feed-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.75rem;
+        }
+        @media (max-width: 900px) { .gallery-feed-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 480px) { .gallery-feed-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .gallery-feed-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-feed-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-feed-item:hover img { transform: scale(1.1); }
+
+        .gallery-feed-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 60, 52, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-feed-item:hover::after { opacity: 1; }
+
+        .gallery-feed-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            color: #fff;
+            font-size: 1.2rem;
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .gallery-feed-item:hover .gallery-feed-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery-feed-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        /* ============================================================
+           GALLERY SECTION 5 — CTA BANNER
+           ============================================================ */
+        .gallery-cta {
+            padding: 4.5rem 0;
+            background: linear-gradient(135deg, var(--gold) 0%, #e8b93a 50%, var(--gold-hover) 100%);
+            color: #1b2620;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-cta::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -80px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: rgba(27, 38, 32, 0.06);
+            pointer-events: none;
+        }
+
+        .gallery-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            right: -100px;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: rgba(27, 38, 32, 0.05);
+            pointer-events: none;
+        }
+
+        .gallery-cta-content { position: relative; z-index: 2; }
+
+        .gallery-cta-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(27, 38, 32, 0.12);
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .gallery-cta h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-cta p {
+            font-size: 1rem;
+            max-width: 520px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            color: rgba(27, 38, 32, 0.8);
+        }
+
+        .gallery-cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-cta .btn-primary { background: #1b2620; color: var(--gold); }
+        .gallery-cta .btn-primary:hover { background: #0d1714; }
+
+        .gallery-cta .btn-secondary { border-color: rgba(27, 38, 32, 0.35); color: #1b2620; }
+        .gallery-cta .btn-secondary:hover { border-color: #1b2620; background: rgba(27, 38, 32, 0.06); }
+
+        /* ===== FOOTER (SAME AS REFERENCE) ===== */
+        .footer {
+            background: var(--bg-deep);
+            color: var(--text-on-deep);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        .footer h4 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer ul li { margin-bottom: 0.5rem; }
+
+        .footer ul a {
+            font-size: 0.88rem;
+            color: rgba(246, 242, 233, 0.65);
+            transition: color 0.2s;
+        }
+        .footer ul a:hover { color: var(--gold); }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(246, 242, 233, 0.1);
+            font-size: 0.78rem;
+            color: rgba(246, 242, 233, 0.45);
+        }
+
+        .footer .logo-title { color: var(--text-on-deep); }
+        .footer .logo-title span { color: var(--gold); }
+        .footer .logo-sub { color: rgba(246, 242, 233, 0.5); }
+        .footer .logo-badge { background: var(--gold); color: #1b2620; }
+
+        .form-input {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid rgba(246, 242, 233, 0.15);
+            background: rgba(246, 242, 233, 0.06);
+            color: var(--text-on-deep);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-input::placeholder { color: rgba(246, 242, 233, 0.4); }
+        .form-input:focus { border-color: var(--gold); }
+
+        /* ===== FLOATING ORDER TRAY + TOAST ===== */
+        .floating-order-tray {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 0.65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 150;
+            transform: translateY(150%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .floating-order-tray.show { transform: translateY(0); }
+
+        .tray-badge-pill {
+            background: var(--gold-soft);
+            color: var(--gold);
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            border-radius: var(--radius-sm);
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 160;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transform: translateX(120%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast-msg.show { transform: translateX(0); }
+    
+        .visit-store-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            background: #dfa024 !important;
+            color: #1b2620 !important;
+            padding: 0.58rem 1.25rem !important;
+            border-radius: 9999px !important;
+            font-size: 0.84rem !important;
+            font-weight: 800 !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 14px rgba(223, 160, 36, 0.28) !important;
+            transition: all 0.25s ease !important;
+            cursor: pointer !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+            border: none !important;
+            white-space: nowrap !important;
+        }
+        .visit-store-btn:hover {
+            background: #c88c15 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 18px rgba(223, 160, 36, 0.38) !important;
+            color: #1b2620 !important;
+        }
+        .visit-store-btn:active {
+            transform: translateY(0) !important;
+            box-shadow: 0 2px 8px rgba(223, 160, 36, 0.28) !important;
+        }
+        @media (max-width: 1024px) {
+            .navbar-right .visit-store-btn {
+                display: none !important;
+            }
+        }
+        .nav-link.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+        }
+        .nav-link.active::after {
+            width: 100% !important;
+            background: #dfa024 !important;
+        }
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        .mobile-link-item:hover {
+            background: rgba(223, 160, 36, 0.08);
+            color: var(--gold);
+        }
+        .mobile-link-item.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+            background: rgba(223, 160, 36, 0.14) !important;
+        }
+        .mobile-link-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR (SAME AS REFERENCE) ===== -->
+<header class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-badge">
+                <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <div class="logo-text-block">
+                <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+            </div>
+        </a>
+
+        <nav class="desktop-nav">
+            <div class="home-dropdown" id="home-dropdown">
+                <button class="home-pill-btn" onclick="toggleDropdown()" aria-haspopup="true" aria-expanded="false">
+                    Home <i class="fas fa-chevron-down" style="font-size: 0.65rem;"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="product.html" class="nav-link">Products</a>
+            <a href="custom.html" class="nav-link">Custom Orders</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link active" >Gallery</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="navbar-right">
+            <button class="circle-btn" id="theme-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <button class="circle-btn" id="rtl-btn" title="Toggle Direction" aria-label="Toggle Direction">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+            <a href="contact.html" class="visit-store-btn">
+                <i class="fas fa-map-marker-alt"></i> Visit Grill
+            </a>
+            <button class="mobile-toggle" id="open-drawer" aria-label="Open Mobile Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MOBILE DRAWER ===== -->
+<div class="mobile-backdrop" id="mobile-backdrop"></div>
+<div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <div class="logo-badge">
+                <i class="fas fa-fire-flame-curved" style="font-size: 1rem;"></i>
+            </div>
+            <div class="logo-text-block">
+                <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+            </div>
+        </div>
+        <button id="close-drawer" class="circle-btn" aria-label="Close Mobile Menu" style="cursor: pointer;">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div style="background: var(--accent-soft); border: 1.5px solid var(--accent); padding: 0.75rem; border-radius: 12px; margin-bottom: 1.25rem;">
+        <span style="font-size: 0.7rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem;"><i class="fas fa-home" style="margin-right: 0.35rem;"></i> Select Homepage:</span>
+        <div style="display: flex; gap: 0.5rem;">
+            <a href="index.html" style="flex: 1; text-align: center; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 0.5rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">Home 1</a>
+            <a href="home2.html" style="flex: 1; text-align: center; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 0.5rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">Home 2</a>
+        </div>
+    </div>
+    <ul class="mobile-links">
+        <li><a href="about.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-info-circle"></i> About Our Story</a></li>
+        <li><a href="product.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-utensils"></i> Menu &amp; Wraps</a></li>
+        <li><a href="custom.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-sliders-h"></i> Custom Wrap Builder</a></li>
+        <li><a href="pricing.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-tags"></i> Combos &amp; Catering</a></li>
+        <li><a href="gallery.html" class="mobile-link-item active" onclick="closeDrawer()"><i class="fas fa-images"></i> Hearth Gallery</a></li>
+        <li><a href="contact.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-map-marker-alt"></i> Contact &amp; Hours</a></li>
+    </ul>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: auto;">
+        <a href="contact.html" class="visit-store-btn" style="width: 100%; justify-content: center; padding: 0.75rem !important;">
+            <i class="fas fa-map-marker-alt"></i> Visit Grill
+        </a>
+        <div style="display: flex; gap: 0.5rem;">
+            <button onclick="toggleTheme()" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem; padding: 0.6rem;">
+                <i class="fas fa-adjust"></i> Theme
+            </button>
+            <button onclick="toggleDirection()" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem; padding: 0.6rem;">
+                <i class="fas fa-exchange-alt"></i> RTL
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     GALLERY SECTION 1 — PAGE HERO
+     ============================================================ -->
+<section class="gallery-hero">
+    <div class="container">
+        <div class="gallery-hero-inner">
+            <div class="gallery-hero-label">
+                <i class="fas fa-camera"></i>
+                Photo Gallery
+            </div>
+            <h1 class="gallery-hero-title">
+                FROM THE FIRE.<br>
+                <span class="gold-word">TO YOUR EYES.</span>
+            </h1>
+            <p class="gallery-hero-desc">
+                A look inside our kitchen — the spit, the smoke, the hands that carve, and the food that comes off the flame. Every photo tells a story.
+            </p>
+            <div class="gallery-hero-stats">
+                <div class="gallery-hero-stat">
+                    <strong>24+</strong>
+                    <span>Photos</span>
+                </div>
+                <div class="gallery-hero-stat">
+                    <strong>4</strong>
+                    <span>Categories</span>
+                </div>
+                <div class="gallery-hero-stat">
+                    <strong>Daily</strong>
+                    <span>New Shots</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GALLERY SECTION 2 — FILTER + MASONRY GRID
+     ============================================================ -->
+<section class="gallery-grid-section">
+    <div class="container">
+        <div class="gallery-grid-header">
+            <div>
+                <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.68rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.85rem;">
+                    <i class="fas fa-images"></i> Browse the Gallery
+                </div>
+                <h2>Every Frame Tells a Story</h2>
+            </div>
+            <p>Filter by category or click any photo to view it full-size. All images shot in our Beirut grill house.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filters" id="gallery-filters">
+            <button class="gallery-filter-btn active" data-filter="all">
+                <i class="fas fa-border-all"></i> All Photos
+            </button>
+            <button class="gallery-filter-btn" data-filter="food">
+                <i class="fas fa-utensils"></i> Food
+            </button>
+            <button class="gallery-filter-btn" data-filter="fire">
+                <i class="fas fa-fire"></i> Fire & Grill
+            </button>
+            <button class="gallery-filter-btn" data-filter="team">
+                <i class="fas fa-users"></i> Team
+            </button>
+            <button class="gallery-filter-btn" data-filter="space">
+                <i class="fas fa-store"></i> The Space
+            </button>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="gallery-masonry" id="gallery-masonry">
+
+            <!-- Food items: 100% Authentic Shawarma, Kebabs, Falafel, Hummus, Baklava -->
+            <div class="gallery-item size-large" data-category="food" data-title="Chicken Shawarma Wrap" data-desc="24-hour marinated rotisserie chicken, hand-carved, wrapped with garlic toum and crispy fries">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop" alt="Chicken Shawarma Wrap">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Chicken Shawarma Wrap</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food" data-title="Lamb Shawarma Platter" data-desc="Charcoal-grilled spiced lamb ribbons over saffron rice with sumac onions and tahini">
+                <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=600&auto=format&fit=crop" alt="Lamb Shawarma Platter">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Lamb Shawarma Platter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-tall" data-category="food" data-title="Mixed Grill Feast Board" data-desc="Shish tawook, charcoal lamb kofta, grilled vegetables, and warm saj bread">
+                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=600&auto=format&fit=crop" alt="Mixed Grill Feast Board">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Mixed Grill Feast Board</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food" data-title="Crispy Herb Falafel Wrap" data-desc="Fresh golden falafel fritters with tahini, tomatoes, and wild pickled turnips">
+                <img src="https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?q=80&w=600&auto=format&fit=crop" alt="Crispy Herb Falafel Wrap">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Crispy Herb Falafel Wrap</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food" data-title="Hummus &amp; Warm Saj Pita" data-desc="Silky chickpea puree with virgin olive oil well, toasted pine nuts, and za'atar">
+                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=600&auto=format&fit=crop" alt="Hummus &amp; Warm Saj Pita">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Hummus &amp; Warm Saj Pita</div>
+                </div>
+            </div>
+
+            <div class="gallery-item size-wide" data-category="food" data-title="Shish Tawook Charcoal Skewers" data-desc="Saffron-garlic marinated chicken skewers with blistered sumac tomatoes">
+                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=900&auto=format&fit=crop" alt="Shish Tawook Charcoal Skewers">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Shish Tawook Skewers</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="food" data-title="Pistachio Baklava" data-desc="Golden layered phyllo pastry filled with crushed Antep pistachios and orange blossom honey">
+                <img src="https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=600&auto=format&fit=crop" alt="Pistachio Baklava">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-utensils"></i> Food</span>
+                    <div class="gallery-item-title">Pistachio Baklava</div>
+                </div>
+            </div>
+
+            <!-- Fire & Grill items -->
+            <div class="gallery-item size-large" data-category="fire" data-title="The Vertical Rotisserie Spit" data-desc="Seasoned chicken and lamb turning continuously over glowing natural charcoal burners">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=900&auto=format&fit=crop" alt="The Vertical Rotisserie Spit">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-fire"></i> Fire</span>
+                    <div class="gallery-item-title">The Vertical Spit</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="fire" data-title="Charcoal Hearth Glow" data-desc="Natural hardwood charcoal firing at 480°F for perfect charred flavor">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop" alt="Charcoal Hearth Glow">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-fire"></i> Fire</span>
+                    <div class="gallery-item-title">Charcoal Glow</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="fire" data-title="Hand-Carved to Order" data-desc="Our grill master shaving tender, caramelized ribbons right off the turning spit">
+                <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?q=80&w=600&auto=format&fit=crop" alt="Hand-Carved Shawarma">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-fire"></i> Fire</span>
+                    <div class="gallery-item-title">Hand-Carved Shawarma</div>
+                </div>
+            </div>
+
+            <!-- Team items -->
+            <div class="gallery-item size-tall" data-category="team" data-title="Chef Karim Haddad" data-desc="Founder and grill master, trained in Beirut, crafting our signature 7-spice rub">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&auto=format&fit=crop&crop=face" alt="Chef Karim Haddad">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-users"></i> Team</span>
+                    <div class="gallery-item-title">Chef Karim Haddad</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="team" data-title="Chef Layla Nasser" data-desc="Head chef overseeing the cold mezze bar and daily fresh toum batch">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=600&auto=format&fit=crop&crop=face" alt="Chef Layla Nasser">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-users"></i> Team</span>
+                    <div class="gallery-item-title">Chef Layla Nasser</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="team" data-title="Omar Fares" data-desc="Spit master with us since day one, managing the rotisserie flame">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop&crop=face" alt="Omar Fares">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-users"></i> Team</span>
+                    <div class="gallery-item-title">Omar Fares</div>
+                </div>
+            </div>
+
+            <!-- The Space items -->
+            <div class="gallery-item size-wide" data-category="space" data-title="The Grill House Dining Hall" data-desc="Warm rustic seating and brickwork in the heart of the Heritage District">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop" alt="The Grill House Dining Hall">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-store"></i> Space</span>
+                    <div class="gallery-item-title">The Grill House</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="space" data-title="The Flame Pickup Counter" data-desc="Watch wraps assembled, sliced, and packed hot off the fire">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=600&auto=format&fit=crop" alt="The Flame Pickup Counter">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-store"></i> Space</span>
+                    <div class="gallery-item-title">The Flame Counter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="space" data-title="Evening Hearth Ambience" data-desc="Ambient warm lighting, sizzling spit aroma, and evening courtyard seating">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Evening Hearth Ambience">
+                <span class="gallery-item-zoom"><i class="fas fa-expand"></i></span>
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-cat"><i class="fas fa-store"></i> Space</span>
+                    <div class="gallery-item-title">Evening Ambience</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     GALLERY SECTION 4 — INSTAGRAM-STYLE FEED
+     ============================================================ -->
+<section class="gallery-feed">
+    <div class="container">
+        <div class="gallery-feed-header">
+            <div class="section-label"><i class="fab fa-instagram"></i> Follow Along</div>
+            <h2>@SHAWARMAHOUSE</h2>
+            <p>Tag us in your photos and we might feature you in our feed. Fresh shots every week.</p>
+        </div>
+
+        <div class="gallery-feed-grid">
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(0)">
+                <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=400&auto=format&fit=crop" alt="Chicken Shawarma Wrap with Fries">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(1)">
+                <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?q=80&w=400&auto=format&fit=crop" alt="Rotating Shawarma Spit">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(2)">
+                <img src="https://images.unsplash.com/photo-1526234362653-3b75a0c07438?q=80&w=400&auto=format&fit=crop" alt="Charcoal Grill Flame Skewers">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(3)">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=400&auto=format&fit=crop" alt="Hand-carved Spiced Lamb Shawarma">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(4)">
+                <img src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?q=80&w=400&auto=format&fit=crop" alt="Crispy Falafel Pita Pocket">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+            <div class="gallery-feed-item" onclick="openLightboxByIndex(5)">
+                <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?q=80&w=400&auto=format&fit=crop" alt="Traditional Hummus with Olive Oil">
+                <i class="fab fa-instagram gallery-feed-icon"></i>
+            </div>
+        </div>
+
+        <div class="gallery-feed-cta">
+            <a href="#" class="btn-secondary" onclick="event.preventDefault(); showToast('Opening Instagram... (demo)')">
+                <i class="fab fa-instagram"></i> Follow @shawarmahouse
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GALLERY SECTION 5 — CTA BANNER
+     ============================================================ -->
+<section class="gallery-cta">
+    <div class="container">
+        <div class="gallery-cta-content">
+            <span class="gallery-cta-kicker"><i class="fas fa-camera"></i> See It In Person</span>
+            <h2>Photos Are Good.<br>The Food Is Better.</h2>
+            <p>Walk into the grill house, watch the fire, and taste the real thing. We're open daily from noon.</p>
+            <div class="gallery-cta-actions">
+                <a href="contact.html" class="btn-primary">
+                    <span>Visit the Grill House</span>
+                    <div class="btn-icon-capsule"><i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="product.html" class="btn-secondary">
+                    <i class="fas fa-utensils"></i> Browse the Menu
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER (SAME AS REFERENCE) ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+                    <div class="logo-badge">
+                        <i class="fas fa-fire-flame-curved" style="font-size: 1rem;"></i>
+                    </div>
+                    <div class="logo-text-block">
+                        <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                        <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+                    </div>
+                </a>
+                <p style="color: rgba(246, 242, 233, 0.6); font-size: 0.9rem; line-height: 1.7; max-width: 300px;">
+                    Hand-carved shawarmas, charcoal-grilled kebabs, and mezze spreads prepared fresh at noon every single day.
+                </p>
+            </div>
+
+            <div>
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home 1 (Grill & Flame)</a></li>
+                    <li><a href="home2.html">Home 2 (Beirut Atelier)</a></li>
+                    <li><a href="about.html">About Our Craft</a></li>
+                    <li><a href="product.html">Daily Grill Menu</a></li>
+                    <li><a href="gallery.html" style="color: var(--gold); font-weight: 700;">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Specialties</h4>
+                <ul>
+                    <li><a href="product.html">Shawarma & Wraps</a></li>
+                    <li><a href="custom.html">Catering & Private Events</a></li>
+                    <li><a href="pricing.html">Weekly Grill Club</a></li>
+                    <li><a href="contact.html">Store Hours & Location</a></li>
+                    <li><a href="contact.html">Inquiries & Bulk Orders</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Join The Grill Gazette</h4>
+                <p style="color: rgba(246, 242, 233, 0.6); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.6;">
+                    Receive weekend special grill releases, seasonal mezze, and shawarma tips.
+                </p>
+                <form onsubmit="handleGazetteSubmit(event)" style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email address" class="form-input" required>
+                    <button type="submit" class="btn-primary" style="padding: 0.6rem 1rem; flex-shrink: 0; background: var(--gold); color: #1b2620;">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            © 2026 SHAWARMA HOUSE Middle Eastern Grill. All rights reserved. Handcrafted with passion.
+        </div>
+    </div>
+</footer>
+
+<!-- ===== FLOATING ORDER TRAY + TOAST ===== -->
+<div class="floating-order-tray" id="order-tray">
+    <div style="display: flex; align-items: center; gap: 0.65rem;">
+        <span class="tray-badge-pill" id="tray-count">1 Item</span>
+        <span style="font-weight: 700; font-size: 0.85rem;" id="tray-text">Added to Order</span>
+    </div>
+    <span style="font-family: 'Anton', sans-serif; font-size: 1.2rem; letter-spacing: 0.03em; color: var(--gold);" id="tray-total">$11.50</span>
+    <a href="contact.html" class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.8rem;">
+        Checkout
+    </a>
+</div>
+
+<div class="toast-msg" id="toast-msg">
+    <i class="fas fa-check-circle" style="color: var(--gold); font-size: 1.15rem;"></i>
+    <span id="toast-text">Item successfully added to your order!</span>
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+    let cartTotal = 0;
+    let cartCount = 0;
+
+    function toggleDropdown() {
+        const dd = document.getElementById('home-dropdown');
+        if (dd) {
+            dd.classList.toggle('active');
+            const btn = dd.querySelector('.home-pill-btn');
+            if (btn) btn.setAttribute('aria-expanded', dd.classList.contains('active') ? 'true' : 'false');
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        const dd = document.getElementById('home-dropdown');
+        if (dd && !dd.contains(e.target)) {
+            dd.classList.remove('active');
+            const btn = dd ? dd.querySelector('.home-pill-btn') : null;
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-backdrop');
+    const openBtn = document.getElementById('open-drawer');
+    const closeBtn = document.getElementById('close-drawer');
+
+    if (openBtn) openBtn.onclick = () => { drawer.classList.add('active'); backdrop.classList.add('active'); };
+    if (closeBtn) closeBtn.onclick = () => { drawer.classList.remove('active'); backdrop.classList.remove('active'); };
+    if (backdrop) backdrop.onclick = () => { drawer.classList.remove('active'); backdrop.classList.remove('active'); };
+    function closeDrawer() { if (drawer) drawer.classList.remove('active'); if (backdrop) backdrop.classList.remove('active'); }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('sh_theme', next);
+        updateThemeIcon(next);
+        showToast('Switched to ' + next.toUpperCase() + ' mode');
+    }
+
+    function updateThemeIcon(t) {
+        const icon = document.getElementById('theme-icon');
+        if (icon) {
+            icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    function toggleDirection() {
+        const html = document.documentElement;
+        const current = html.getAttribute('dir') || 'ltr';
+        const next = current === 'rtl' ? 'ltr' : 'rtl';
+        html.setAttribute('dir', next);
+        localStorage.setItem('sh_dir', next);
+        showToast('Direction set to ' + next.toUpperCase());
+    }
+
+    (function initPreferences() {
+        const savedTheme = localStorage.getItem('sh_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        const savedDir = localStorage.getItem('sh_dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+        }
+    })();
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast-msg');
+        const text = document.getElementById('toast-text');
+        if (text) text.textContent = msg;
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 3200);
+        }
+    }
+
+    function addToCart(title, price) {
+        cartCount++;
+        cartTotal += price;
+        const tray = document.getElementById('order-tray');
+        const countEl = document.getElementById('tray-count');
+        const textEl = document.getElementById('tray-text');
+        const totalEl = document.getElementById('tray-total');
+
+        if (countEl) countEl.textContent = cartCount + (cartCount === 1 ? ' Item' : ' Items');
+        if (textEl) textEl.textContent = title;
+        if (totalEl) totalEl.textContent = '$' + cartTotal.toFixed(2);
+        if (tray) tray.classList.add('show');
+
+        showToast('Added ' + title + ' to order ($' + price.toFixed(2) + ')');
+    }
+
+    function handleGazetteSubmit(e) {
+        e.preventDefault();
+        showToast('Welcome to The Grill Gazette! You are on our list.');
+        e.target.reset();
+    }
+
+    const themeBtn = document.getElementById('theme-btn');
+    if (themeBtn) themeBtn.onclick = toggleTheme;
+    const rtlBtn = document.getElementById('rtl-btn');
+    if (rtlBtn) rtlBtn.onclick = toggleDirection;
+
+    // ===== GALLERY FILTER =====
+    const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryEmpty = document.getElementById('gallery-empty');
+
+    galleryFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            galleryFilterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            let visibleCount = 0;
+
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = '';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (galleryEmpty) {
+                galleryEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        });
+    });
+
+    // ===== LIGHTBOX =====
+    let lightboxItems = [];
+    let lightboxIndex = 0;
+
+    function buildLightboxList() {
+        lightboxItems = [];
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            const img = item.querySelector('img');
+            if (img) {
+                lightboxItems.push({
+                    src: img.src,
+                    title: item.dataset.title || 'Gallery Image',
+                    desc: item.dataset.desc || ''
+                });
+            }
+        });
+    }
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            buildLightboxList();
+            const img = item.querySelector('img');
+            const idx = lightboxItems.findIndex(l => l.src === img.src);
+            openLightbox(idx >= 0 ? idx : 0);
+        });
+    });
+
+    function openLightbox(index) {
+        if (lightboxItems.length === 0) buildLightboxList();
+        if (index < 0 || index >= lightboxItems.length) return;
+        lightboxIndex = index;
+        const item = lightboxItems[index];
+        document.getElementById('lightbox-img').src = item.src;
+        document.getElementById('lightbox-title').textContent = item.title;
+        document.getElementById('lightbox-desc').textContent = item.desc;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(dir) {
+        lightboxIndex += dir;
+        if (lightboxIndex < 0) lightboxIndex = lightboxItems.length - 1;
+        if (lightboxIndex >= lightboxItems.length) lightboxIndex = 0;
+        const item = lightboxItems[lightboxIndex];
+        document.getElementById('lightbox-img').src = item.src;
+        document.getElementById('lightbox-title').textContent = item.title;
+        document.getElementById('lightbox-desc').textContent = item.desc;
+    }
+
+    // Feed lightbox
+    function openLightboxByIndex(i) {
+        buildLightboxList();
+        // Use feed images as lightbox source
+        const feedImgs = document.querySelectorAll('.gallery-feed-item img');
+        if (feedImgs[i]) {
+            lightboxItems = Array.from(feedImgs).map((img, idx) => ({
+                src: img.src,
+                title: 'From the Grill',
+                desc: 'Follow @shawarmahouse for more'
+            }));
+            openLightbox(i);
+        }
+    }
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+        if (document.getElementById('lightbox').classList.contains('active')) {
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        }
+    });
+
+    // Click outside to close
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+    });
+
+    // Image fallback
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=800&auto=format&fit=crop';
+        });
+    });
+</script>
+
+</body>
+</html>

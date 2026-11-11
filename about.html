@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Shawarma House – The story, the craft, and the people behind Beirut's favourite Middle Eastern grill. Meet our team and learn our philosophy.">
+    <title>SHAWARMA HOUSE | About Us – Our Story & Craft</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌯</text></svg>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================
+           SHAWARMA HOUSE — ABOUT PAGE DESIGN SYSTEM
+           Same theme · Story-driven layouts
+           ============================================================ */
+
+        :root {
+            --bg-main: #f6f2e9;
+            --bg-alt: #eee8db;
+            --bg-card: #ffffff;
+            --bg-deep: #1a3c34;
+            --text-main: #1b2620;
+            --text-muted: #5f6b64;
+            --text-on-deep: #f6f2e9;
+            --accent: #1a3c34;
+            --accent-hover: #245248;
+            --accent-soft: #e3efe9;
+            --gold: #d4a017;
+            --gold-hover: #b88a12;
+            --gold-soft: #fdf3d7;
+            --border: #ded6c8;
+            --border-deep: #2d5a4e;
+            --shadow-sm: 0 2px 12px rgba(27, 38, 32, 0.06);
+            --shadow-md: 0 10px 32px rgba(27, 38, 32, 0.10);
+            --shadow-lg: 0 22px 60px rgba(27, 38, 32, 0.16);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --radius-pill: 999px;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0d1714;
+            --bg-alt: #13221d;
+            --bg-card: #1a2c26;
+            --bg-deep: #0a1210;
+            --text-main: #eef5f1;
+            --text-muted: #94a89f;
+            --text-on-deep: #eef5f1;
+            --accent: #6ee7b7;
+            --accent-hover: #8af0c8;
+            --accent-soft: rgba(110, 231, 183, 0.10);
+            --gold: #f5c542;
+            --gold-hover: #f7d36b;
+            --gold-soft: rgba(245, 197, 66, 0.10);
+            --border: #243830;
+            --border-deep: #6ee7b7;
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 22px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; line-height: 1.12; }
+        img { display: block; max-width: 100%; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; }
+
+        .container {
+            width: 100%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== NAVBAR (SAME AS REFERENCE) ===== */
+        .navbar-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border 0.3s;
+        }
+
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.35rem 0;
+            gap: 1.5rem;
+        }
+
+        .logo { display: flex; align-items: center; gap: 0.65rem; flex-shrink: 0; }
+
+        .logo-badge {
+            width: 44px; height: 44px;
+            background: var(--accent);
+            color: var(--bg-main);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.15rem;
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .logo-badge { color: #0d1714; }
+
+        .logo-text-block { display: flex; flex-direction: column; line-height: 1.05; }
+
+        .logo-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            letter-spacing: 0.04em;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+        .logo-title span { color: var(--gold); }
+
+        .logo-sub {
+            font-size: 0.52rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .desktop-nav { display: flex; align-items: center; gap: 1.4rem; }
+
+        .nav-link {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.25s;
+        }
+        .nav-link:hover { color: var(--text-main); }
+        .nav-link:hover::after { width: 100%; }
+
+        .home-dropdown { position: relative; }
+
+        .home-pill-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: transparent;
+            color: var(--text-muted);
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.86rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .home-pill-btn:hover {
+            color: var(--text-main);
+            background: rgba(223, 160, 36, 0.08);
+            border-color: rgba(223, 160, 36, 0.25);
+        }
+        .home-pill-btn.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+            background: rgba(223, 160, 36, 0.12) !important;
+            border-color: rgba(223, 160, 36, 0.4) !important;
+        }
+        [data-theme="dark"] .home-pill-btn { color: var(--text-muted); }
+        [data-theme="dark"] .home-pill-btn:hover { color: var(--text-main); }
+        [data-theme="dark"] .home-pill-btn.active { color: #dfa024 !important; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.4rem;
+            min-width: 150px;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: all 0.2s;
+        }
+        .home-dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.15s;
+        }
+        .dropdown-item:hover { background: var(--accent-soft); color: var(--accent); }
+        .dropdown-item.active-item { color: var(--gold); font-weight: 800; }
+
+        .navbar-right { display: flex; align-items: center; gap: 0.6rem; }
+
+        .circle-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .circle-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+        .visit-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--gold);
+            color: #1b2620;
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 800;
+            transition: background 0.2s;
+        }
+        .visit-store-btn:hover { background: var(--gold-hover); }
+
+        .mobile-toggle {
+            display: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            color: var(--text-main);
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .mobile-toggle:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-nav { display: none !important; }
+            .navbar-right .visit-store-btn { display: none !important; }
+            .mobile-toggle { display: inline-flex !important; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 0.85rem !important; }
+            .navbar-flex { padding: 1.15rem 0 !important; gap: 0.45rem; flex-wrap: nowrap; }
+            .logo { gap: 0.5rem; min-width: 0; flex-shrink: 1; }
+            .logo-badge { width: 38px; height: 38px; min-width: 38px; font-size: 1.1rem; border-radius: 10px; }
+            .logo-text-block { min-width: 0; }
+            .logo-title { font-size: 1.22rem; letter-spacing: 0.01em; white-space: nowrap; }
+            .logo-sub { font-size: 0.56rem; letter-spacing: 0.1em; white-space: nowrap; }
+            .navbar-right { gap: 0.35rem; flex-shrink: 0; }
+            .circle-btn { width: 36px; height: 36px; min-width: 36px; font-size: 0.85rem; border-width: 1.5px; }
+            .mobile-toggle { width: 38px; height: 38px; min-width: 38px; font-size: 1.1rem; border-width: 1.5px; }
+        }
+
+        @media (max-width: 360px) {
+            .navbar-flex { padding: 1rem 0 !important; }
+            .logo-sub { display: none; }
+            .logo-title { font-size: 1.1rem; }
+            .circle-btn { width: 34px; height: 34px; min-width: 34px; }
+            .mobile-toggle { width: 36px; height: 36px; min-width: 36px; }
+        }
+
+        /* ===== MOBILE DRAWER ===== */
+        .mobile-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 18, 16, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 200;
+            backdrop-filter: blur(3px);
+        }
+        .mobile-backdrop.active { opacity: 1; visibility: visible; }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0; right: 0;
+            width: 320px;
+            max-width: 85vw;
+            height: 100%;
+            background: var(--bg-card);
+            z-index: 201;
+            padding: 1.5rem;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+        }
+        .mobile-drawer.active { transform: translateX(0); }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-links { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.5rem; }
+
+        .mobile-link-item {
+            display: block;
+            padding: 0.75rem 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ===== SHARED BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent);
+            color: var(--bg-main);
+            padding: 0.8rem 1.6rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.25s;
+        }
+        [data-theme="dark"] .btn-primary { color: #0d1714; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-icon-capsule {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-main);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--border);
+            transition: all 0.25s;
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ============================================================
+           ABOUT SECTION 1 — PAGE HERO WITH LAYERED IMAGES
+           ============================================================ */
+        .about-hero {
+            position: relative;
+            background: var(--bg-deep);
+            color: var(--text-on-deep);
+            padding: 5rem 0 4rem;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: 'STORY';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(6rem, 22vw, 20rem);
+            color: rgba(212, 160, 23, 0.05);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .about-hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .about-hero-label::before {
+            content: '';
+            width: 36px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .about-hero-title {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .about-hero-title .gold-word { color: var(--gold); }
+
+        .about-hero-desc {
+            font-size: 1.02rem;
+            color: rgba(246, 242, 233, 0.75);
+            line-height: 1.8;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .about-hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+        .about-hero .btn-primary { background: var(--gold); color: #1b2620; }
+        .about-hero .btn-primary:hover { background: var(--gold-hover); }
+        .about-hero .btn-secondary { border-color: rgba(246, 242, 233, 0.3); color: var(--text-on-deep); }
+        .about-hero .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        .about-hero-images {
+            position: relative;
+            min-height: 420px;
+        }
+
+        .about-hero-img-main {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 75%;
+            height: 75%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-hero-img-main img { width: 100%; height: 100%; object-fit: cover; }
+
+        .about-hero-img-small {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55%;
+            height: 55%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 5px solid var(--bg-deep);
+            box-shadow: var(--shadow-lg);
+        }
+        .about-hero-img-small img { width: 100%; height: 100%; object-fit: cover; }
+
+        .about-hero-badge {
+            position: absolute;
+            bottom: 6%;
+            right: 0;
+            background: var(--gold);
+            color: #1b2620;
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            z-index: 3;
+            text-align: center;
+        }
+        .about-hero-badge strong {
+            display: block;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+        .about-hero-badge span {
+            font-size: 0.6rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .about-hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .about-hero-images { min-height: 340px; }
+        }
+
+        /* ============================================================
+           ABOUT SECTION 2 — MISSION STATEMENT WITH LARGE TYPE
+           ============================================================ */
+        .about-mission {
+            padding: 6rem 0;
+            background: var(--bg-main);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-mission::before {
+            content: '“';
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Fraunces', serif;
+            font-size: 22rem;
+            color: var(--gold);
+            opacity: 0.06;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .about-mission-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-mission-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-mission-text {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+            margin-bottom: 2rem;
+        }
+        .about-mission-text em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .about-mission-signature {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.35rem;
+        }
+
+        .about-mission-role {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ============================================================
+           ABOUT SECTION 3 — TIMELINE / MILESTONES
+           ============================================================ */
+        .about-timeline {
+            padding: 5.5rem 0;
+            background: var(--bg-alt);
+        }
+
+        .about-timeline-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .about-timeline-header .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.85rem;
+        }
+        .about-timeline-header .section-label::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .about-timeline-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1.02;
+        }
+
+        .about-timeline-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0.85rem auto 0;
+            line-height: 1.75;
+        }
+
+        .about-timeline-track {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .about-timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .about-timeline-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .about-timeline-dot {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-timeline-year {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            letter-spacing: 0.04em;
+            margin-bottom: 0.35rem;
+        }
+
+        .about-timeline-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 0.35rem;
+        }
+
+        .about-timeline-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .about-timeline-track { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .about-timeline-track::before { display: none; }
+        }
+        @media (max-width: 520px) {
+            .about-timeline-track { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================================
+           ABOUT SECTION 4 — VALUES / PHILOSOPHY CARDS
+           ============================================================ */
+        .about-values {
+            padding: 5.5rem 0;
+            background: var(--bg-main);
+        }
+
+        .about-values-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-values-header .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.85rem;
+        }
+        .about-values-header .section-label::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .about-values-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1.02;
+        }
+
+        .about-values-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0.85rem auto 0;
+            line-height: 1.75;
+        }
+
+        .about-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) { .about-values-grid { grid-template-columns: 1fr; } }
+
+        .about-value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 1.85rem;
+            transition: all 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        .about-value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+        .about-value-card:hover::before { transform: scaleX(1); }
+
+        .about-value-icon {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            background: var(--gold-soft);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: all 0.35s;
+        }
+        .about-value-card:hover .about-value-icon {
+            background: var(--gold);
+            color: #1b2620;
+            transform: rotate(-6deg) scale(1.05);
+        }
+
+        .about-value-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-value-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           ABOUT SECTION 5 — TEAM / PEOPLE GRID
+           ============================================================ */
+        .about-team {
+            padding: 5.5rem 0;
+            background: var(--bg-alt);
+        }
+
+        .about-team-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-team-header .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.85rem;
+        }
+        .about-team-header .section-label::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .about-team-header h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            line-height: 1.02;
+        }
+
+        .about-team-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0.85rem auto 0;
+            line-height: 1.75;
+        }
+
+        .about-team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) { .about-team-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .about-team-grid { grid-template-columns: 1fr; } }
+
+        .about-team-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.35s;
+        }
+        .about-team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+
+        .about-team-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .about-team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .about-team-card:hover .about-team-img img { transform: scale(1.06); }
+
+        .about-team-role-tag {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: var(--gold);
+            color: #1b2620;
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .about-team-body { padding: 1.5rem; }
+
+        .about-team-body h3 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .about-team-body p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           ABOUT SECTION 6 — CTA / INVITATION
+           ============================================================ */
+        .about-cta {
+            padding: 5rem 0;
+            background: var(--bg-main);
+        }
+
+        .about-cta-inner {
+            background: var(--bg-deep);
+            border-radius: calc(var(--radius) + 8px);
+            padding: 4rem 3.5rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-cta-inner::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.15) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .about-cta-content { position: relative; z-index: 2; }
+
+        .about-cta-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 160, 23, 0.15);
+            border: 1px solid rgba(212, 160, 23, 0.35);
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .about-cta-content h2 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 0.98;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--text-on-deep);
+            margin-bottom: 1rem;
+        }
+        .about-cta-content h2 span { color: var(--gold); }
+
+        .about-cta-content p {
+            font-size: 0.95rem;
+            color: rgba(246, 242, 233, 0.7);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .about-cta-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+        .about-cta .btn-primary { background: var(--gold); color: #1b2620; }
+        .about-cta .btn-primary:hover { background: var(--gold-hover); }
+        .about-cta .btn-secondary { border-color: rgba(246, 242, 233, 0.3); color: var(--text-on-deep); }
+        .about-cta .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        .about-cta-img {
+            position: relative;
+            z-index: 2;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-cta-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        @media (max-width: 900px) {
+            .about-cta-inner { grid-template-columns: 1fr; padding: 2.5rem 1.75rem; }
+            .about-cta-img { display: none; }
+        }
+
+        /* ===== FOOTER (SAME AS REFERENCE) ===== */
+        .footer {
+            background: var(--bg-deep);
+            color: var(--text-on-deep);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        .footer h4 {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer ul li { margin-bottom: 0.5rem; }
+
+        .footer ul a {
+            font-size: 0.88rem;
+            color: rgba(246, 242, 233, 0.65);
+            transition: color 0.2s;
+        }
+        .footer ul a:hover { color: var(--gold); }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(246, 242, 233, 0.1);
+            font-size: 0.78rem;
+            color: rgba(246, 242, 233, 0.45);
+        }
+
+        .footer .logo-title { color: var(--text-on-deep); }
+        .footer .logo-title span { color: var(--gold); }
+        .footer .logo-sub { color: rgba(246, 242, 233, 0.5); }
+        .footer .logo-badge { background: var(--gold); color: #1b2620; }
+
+        .form-input {
+            width: 100%;
+            padding: 0.65rem 1rem;
+            border-radius: var(--radius-pill);
+            border: 1.5px solid rgba(246, 242, 233, 0.15);
+            background: rgba(246, 242, 233, 0.06);
+            color: var(--text-on-deep);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-input::placeholder { color: rgba(246, 242, 233, 0.4); }
+        .form-input:focus { border-color: var(--gold); }
+
+        /* ===== FLOATING ORDER TRAY + TOAST ===== */
+        .floating-order-tray {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 0.65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 150;
+            transform: translateY(150%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .floating-order-tray.show { transform: translateY(0); }
+
+        .tray-badge-pill {
+            background: var(--gold-soft);
+            color: var(--gold);
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            border-radius: var(--radius-sm);
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 160;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            transform: translateX(120%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast-msg.show { transform: translateX(0); }
+
+        /* ===== UTILITY ===== */
+        [dir="rtl"] .about-hero-img-main { right: auto; left: 0; }
+        [dir="rtl"] .about-hero-img-small { left: auto; right: 0; }
+        [dir="rtl"] .about-hero-badge { right: auto; left: 0; }
+    
+        .visit-store-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            background: #dfa024 !important;
+            color: #1b2620 !important;
+            padding: 0.58rem 1.25rem !important;
+            border-radius: 9999px !important;
+            font-size: 0.84rem !important;
+            font-weight: 800 !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 14px rgba(223, 160, 36, 0.28) !important;
+            transition: all 0.25s ease !important;
+            cursor: pointer !important;
+            touch-action: manipulation !important;
+            -webkit-tap-highlight-color: transparent !important;
+            border: none !important;
+            white-space: nowrap !important;
+        }
+        .visit-store-btn:hover {
+            background: #c88c15 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 18px rgba(223, 160, 36, 0.38) !important;
+            color: #1b2620 !important;
+        }
+        .visit-store-btn:active {
+            transform: translateY(0) !important;
+            box-shadow: 0 2px 8px rgba(223, 160, 36, 0.28) !important;
+        }
+        @media (max-width: 1024px) {
+            .navbar-right .visit-store-btn {
+                display: none !important;
+            }
+        }
+        .nav-link.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+        }
+        .nav-link.active::after {
+            width: 100% !important;
+            background: #dfa024 !important;
+        }
+        .mobile-link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        .mobile-link-item:hover {
+            background: rgba(223, 160, 36, 0.08);
+            color: var(--gold);
+        }
+        .mobile-link-item.active {
+            color: #dfa024 !important;
+            font-weight: 800 !important;
+            background: rgba(223, 160, 36, 0.14) !important;
+        }
+        .mobile-link-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR (SAME AS REFERENCE) ===== -->
+<header class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-badge">
+                <i class="fas fa-fire-flame-curved"></i>
+            </div>
+            <div class="logo-text-block">
+                <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+            </div>
+        </a>
+
+        <nav class="desktop-nav">
+            <div class="home-dropdown" id="home-dropdown">
+                <button class="home-pill-btn" onclick="toggleDropdown()" aria-haspopup="true" aria-expanded="false">
+                    Home <i class="fas fa-chevron-down" style="font-size: 0.65rem;"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link active" >About</a>
+            <a href="product.html" class="nav-link">Products</a>
+            <a href="custom.html" class="nav-link">Custom Orders</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="navbar-right">
+            <button class="circle-btn" id="theme-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <button class="circle-btn" id="rtl-btn" title="Toggle Direction" aria-label="Toggle Direction">
+                <i class="fas fa-exchange-alt"></i>
+            </button>
+            <a href="contact.html" class="visit-store-btn">
+                <i class="fas fa-map-marker-alt"></i> Visit Grill
+            </a>
+            <button class="mobile-toggle" id="open-drawer" aria-label="Open Mobile Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ===== MOBILE DRAWER ===== -->
+<div class="mobile-backdrop" id="mobile-backdrop"></div>
+<div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <div class="logo-badge">
+                <i class="fas fa-fire-flame-curved" style="font-size: 1rem;"></i>
+            </div>
+            <div class="logo-text-block">
+                <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+            </div>
+        </div>
+        <button id="close-drawer" class="circle-btn" aria-label="Close Mobile Menu" style="cursor: pointer;">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div style="background: var(--accent-soft); border: 1.5px solid var(--accent); padding: 0.75rem; border-radius: 12px; margin-bottom: 1.25rem;">
+        <span style="font-size: 0.7rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem;"><i class="fas fa-home" style="margin-right: 0.35rem;"></i> Select Homepage:</span>
+        <div style="display: flex; gap: 0.5rem;">
+            <a href="index.html" style="flex: 1; text-align: center; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 0.5rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">Home 1</a>
+            <a href="home2.html" style="flex: 1; text-align: center; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 0.5rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-decoration: none;">Home 2</a>
+        </div>
+    </div>
+    <ul class="mobile-links">
+        <li><a href="about.html" class="mobile-link-item active" onclick="closeDrawer()"><i class="fas fa-info-circle"></i> About Our Story</a></li>
+        <li><a href="product.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-utensils"></i> Menu &amp; Wraps</a></li>
+        <li><a href="custom.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-sliders-h"></i> Custom Wrap Builder</a></li>
+        <li><a href="pricing.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-tags"></i> Combos &amp; Catering</a></li>
+        <li><a href="gallery.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-images"></i> Hearth Gallery</a></li>
+        <li><a href="contact.html" class="mobile-link-item" onclick="closeDrawer()"><i class="fas fa-map-marker-alt"></i> Contact &amp; Hours</a></li>
+    </ul>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: auto;">
+        <a href="contact.html" class="visit-store-btn" style="width: 100%; justify-content: center; padding: 0.75rem !important;">
+            <i class="fas fa-map-marker-alt"></i> Visit Grill
+        </a>
+        <div style="display: flex; gap: 0.5rem;">
+            <button onclick="toggleTheme()" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem; padding: 0.6rem;">
+                <i class="fas fa-adjust"></i> Theme
+            </button>
+            <button onclick="toggleDirection()" class="btn-secondary" style="flex: 1; justify-content: center; font-size: 0.8rem; padding: 0.6rem;">
+                <i class="fas fa-exchange-alt"></i> RTL
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     ABOUT SECTION 1 — PAGE HERO WITH LAYERED IMAGES
+     ============================================================ -->
+<section class="about-hero">
+    <div class="container">
+        <div class="about-hero-inner">
+            <div>
+                <div class="about-hero-label">
+                    <i class="fas fa-book-open"></i>
+                    Our Story
+                </div>
+                <h1 class="about-hero-title">
+                    BORN FROM<br>
+                    <span class="gold-word">FIRE</span><br>
+                    & PATIENCE.
+                </h1>
+                <p class="about-hero-desc">
+                    Shawarma House began with a single vertical spit and an obsession: to serve the most honest shawarma in Beirut. No shortcuts, no compromises — just fire, spice, and the patience to do it right.
+                </p>
+                <div class="about-hero-actions">
+                    <a href="product.html" class="btn-primary">
+                        <span>Taste the Story</span>
+                        <div class="btn-icon-capsule"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-map-marker-alt"></i> Visit Us
+                    </a>
+                </div>
+            </div>
+            <div class="about-hero-images">
+                <div class="about-hero-img-main">
+                    <img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800&auto=format&fit=crop" alt="Shawarma spit">
+                </div>
+                <div class="about-hero-img-small">
+                    <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=600&auto=format&fit=crop&crop=face" alt="Chef Karim Haddad">
+                </div>
+                <div class="about-hero-badge">
+                    <strong>Since 2016</strong>
+                    <span>Beirut, Lebanon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION 2 — MISSION STATEMENT WITH LARGE TYPE
+     ============================================================ -->
+<section class="about-mission">
+    <div class="container">
+        <div class="about-mission-inner">
+            <div class="about-mission-label">
+                <i class="fas fa-quote-left"></i>
+                Our Philosophy
+            </div>
+            <p class="about-mission-text">
+                We believe real shawarma requires only four honest elements — <em>meat, fire, spice, and time</em> — and the discipline to let each one do its work. No artificial tenderizers. No gas-fired shortcuts. No compromise.
+            </p>
+            <div class="about-mission-signature">— Chef Karim Haddad</div>
+            <div class="about-mission-role">Founder & Grill Master</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION 3 — TIMELINE / MILESTONES
+     ============================================================ -->
+<section class="about-timeline">
+    <div class="container">
+        <div class="about-timeline-header">
+            <div class="section-label"><i class="fas fa-road"></i> The Journey</div>
+            <h2>Milestones Along the Way</h2>
+            <p>From a single spit to Beirut's favourite grill house — here's how we got here.</p>
+        </div>
+
+        <div class="about-timeline-track">
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot">2016</div>
+                <div class="about-timeline-year">The Beginning</div>
+                <div class="about-timeline-title">First Spit Fired</div>
+                <div class="about-timeline-desc">Chef Karim opens a 12-seat counter in the Heritage District with one vertical spit and a seven-spice recipe.</div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot">2019</div>
+                <div class="about-timeline-year">Growing</div>
+                <div class="about-timeline-title">Full Grill House</div>
+                <div class="about-timeline-desc">We expand into a full dining room, add charcoal grills, and introduce our mezze counter.</div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot">2022</div>
+                <div class="about-timeline-year">Recognition</div>
+                <div class="about-timeline-title">City's Best Wrap</div>
+                <div class="about-timeline-desc">Voted "Beirut's Best Shawarma" by local food critics and featured in three national publications.</div>
+            </div>
+
+            <div class="about-timeline-item">
+                <div class="about-timeline-dot">2026</div>
+                <div class="about-timeline-year">Today</div>
+                <div class="about-timeline-title">1,200 Weekly</div>
+                <div class="about-timeline-desc">Serving over 1,200 wraps a week, with a full catering programme and a second location on the way.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION 4 — VALUES / PHILOSOPHY CARDS
+     ============================================================ -->
+<section class="about-values">
+    <div class="container">
+        <div class="about-values-header">
+            <div class="section-label"><i class="fas fa-heart"></i> What We Stand For</div>
+            <h2>Our Three Non-Negotiables</h2>
+            <p>These are the principles we refuse to compromise on — no matter how busy the counter gets.</p>
+        </div>
+
+        <div class="about-values-grid">
+            <div class="about-value-card">
+                <div class="about-value-icon"><i class="fas fa-clock"></i></div>
+                <h3>Time Over Speed</h3>
+                <p>Twenty-four hours of marination. Slow charcoal rotation. We believe patience is the most important ingredient in the kitchen.</p>
+            </div>
+
+            <div class="about-value-card">
+                <div class="about-value-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Honest Ingredients</h3>
+                <p>Free-range chicken and lamb, a hand-toasted seven-spice blend, and produce from local farms. Nothing artificial, ever.</p>
+            </div>
+
+            <div class="about-value-card">
+                <div class="about-value-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Community First</h3>
+                <p>We're a neighbourhood grill house. Our regulars know our names, and we know their orders. That's how it should be.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION 5 — TEAM / PEOPLE GRID
+     ============================================================ -->
+<section class="about-team">
+    <div class="container">
+        <div class="about-team-header">
+            <div class="section-label"><i class="fas fa-users"></i> The People</div>
+            <h2>Meet the Grill Team</h2>
+            <p>The faces behind the counter — the ones who turn the spit, fold the toum, and greet you at the door.</p>
+        </div>
+
+        <div class="about-team-grid">
+            <div class="about-team-card">
+                <div class="about-team-img">
+                    <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=600&auto=format&fit=crop&crop=face" alt="Chef Karim Haddad">
+                    <span class="about-team-role-tag">Founder & Grill Master</span>
+                </div>
+                <div class="about-team-body">
+                    <h3>Karim Haddad</h3>
+                    <p>Trained in Beirut's old-school shawarma kitchens. Started the shop with one spit and a borrowed charcoal grill.</p>
+                </div>
+            </div>
+
+            <div class="about-team-card">
+                <div class="about-team-img">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop&crop=face" alt="Layla Nasser">
+                    <span class="about-team-role-tag">Head Chef</span>
+                </div>
+                <div class="about-team-body">
+                    <h3>Layla Nasser</h3>
+                    <p>Runs the mezze counter and the catering kitchen. Her hummus has been called "dangerously good" by more than one regular.</p>
+                </div>
+            </div>
+
+            <div class="about-team-card">
+                <div class="about-team-img">
+                    <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=600&auto=format&fit=crop&crop=face" alt="Omar Fares">
+                    <span class="about-team-role-tag">Spit Master</span>
+                </div>
+                <div class="about-team-body">
+                    <h3>Omar Fares</h3>
+                    <p>The man on the spit. Omar has been with Shawarma House since day one and can carve a wrap in under thirty seconds.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION 6 — CTA / INVITATION
+     ============================================================ -->
+<section class="about-cta">
+    <div class="container">
+        <div class="about-cta-inner">
+            <div class="about-cta-content">
+                <span class="about-cta-kicker"><i class="fas fa-fire"></i> Come Say Hello</span>
+                <h2>The Spit Is<br><span>Always Turning.</span></h2>
+                <p>Reading about us is good. Tasting the real thing is better. Walk in, pull up a stool, and watch the fire do its work.</p>
+                <div class="about-cta-actions">
+                    <a href="product.html" class="btn-primary">
+                        <span>See the Menu</span>
+                        <div class="btn-icon-capsule"><i class="fas fa-arrow-right"></i></div>
+                    </a>
+                    <a href="contact.html" class="btn-secondary">
+                        <i class="fas fa-map-marker-alt"></i> Get Directions
+                    </a>
+                </div>
+            </div>
+            <div class="about-cta-img">
+                <img src="https://images.unsplash.com/photo-1526234362653-3b75a0c07438?q=80&w=800&auto=format&fit=crop" alt="Grill fire">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER (SAME AS REFERENCE) ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 1rem; display: inline-flex;">
+                    <div class="logo-badge">
+                        <i class="fas fa-fire-flame-curved" style="font-size: 1rem;"></i>
+                    </div>
+                    <div class="logo-text-block">
+                        <span class="logo-title">SHAWARMA<span>HOUSE</span></span>
+                        <span class="logo-sub">MIDDLE EASTERN GRILL</span>
+                    </div>
+                </a>
+                <p style="color: rgba(246, 242, 233, 0.6); font-size: 0.9rem; line-height: 1.7; max-width: 300px;">
+                    Hand-carved shawarmas, charcoal-grilled kebabs, and mezze spreads prepared fresh at noon every single day.
+                </p>
+            </div>
+
+            <div>
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home 1 (Grill & Flame)</a></li>
+                    <li><a href="home2.html">Home 2 (Beirut Atelier)</a></li>
+                    <li><a href="about.html" style="color: var(--gold); font-weight: 700;">About Our Craft</a></li>
+                    <li><a href="product.html">Daily Grill Menu</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Specialties</h4>
+                <ul>
+                    <li><a href="product.html">Shawarma & Wraps</a></li>
+                    <li><a href="custom.html">Catering & Private Events</a></li>
+                    <li><a href="pricing.html">Weekly Grill Club</a></li>
+                    <li><a href="contact.html">Store Hours & Location</a></li>
+                    <li><a href="contact.html">Inquiries & Bulk Orders</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Join The Grill Gazette</h4>
+                <p style="color: rgba(246, 242, 233, 0.6); font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.6;">
+                    Receive weekend special grill releases, seasonal mezze, and shawarma tips.
+                </p>
+                <form onsubmit="handleGazetteSubmit(event)" style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Your email address" class="form-input" required>
+                    <button type="submit" class="btn-primary" style="padding: 0.6rem 1rem; flex-shrink: 0; background: var(--gold); color: #1b2620;">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            © 2026 SHAWARMA HOUSE Middle Eastern Grill. All rights reserved. Handcrafted with passion.
+        </div>
+    </div>
+</footer>
+
+<!-- ===== FLOATING ORDER TRAY + TOAST ===== -->
+<div class="floating-order-tray" id="order-tray">
+    <div style="display: flex; align-items: center; gap: 0.65rem;">
+        <span class="tray-badge-pill" id="tray-count">1 Item</span>
+        <span style="font-weight: 700; font-size: 0.85rem;" id="tray-text">Added to Order</span>
+    </div>
+    <span style="font-family: 'Anton', sans-serif; font-size: 1.2rem; letter-spacing: 0.03em; color: var(--gold);" id="tray-total">$11.50</span>
+    <a href="contact.html" class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.8rem;">
+        Checkout
+    </a>
+</div>
+
+<div class="toast-msg" id="toast-msg">
+    <i class="fas fa-check-circle" style="color: var(--gold); font-size: 1.15rem;"></i>
+    <span id="toast-text">Item successfully added to your order!</span>
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+    let cartTotal = 0;
+    let cartCount = 0;
+
+    function toggleDropdown() {
+        const dd = document.getElementById('home-dropdown');
+        if (dd) {
+            dd.classList.toggle('active');
+            const btn = dd.querySelector('.home-pill-btn');
+            if (btn) btn.setAttribute('aria-expanded', dd.classList.contains('active') ? 'true' : 'false');
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        const dd = document.getElementById('home-dropdown');
+        if (dd && !dd.contains(e.target)) {
+            dd.classList.remove('active');
+            const btn = dd ? dd.querySelector('.home-pill-btn') : null;
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-backdrop');
+    const openBtn = document.getElementById('open-drawer');
+    const closeBtn = document.getElementById('close-drawer');
+
+    if (openBtn) openBtn.onclick = () => { drawer.classList.add('active'); backdrop.classList.add('active'); };
+    if (closeBtn) closeBtn.onclick = () => { drawer.classList.remove('active'); backdrop.classList.remove('active'); };
+    if (backdrop) backdrop.onclick = () => { drawer.classList.remove('active'); backdrop.classList.remove('active'); };
+    function closeDrawer() { if (drawer) drawer.classList.remove('active'); if (backdrop) backdrop.classList.remove('active'); }
+
+    function toggleTheme() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('sh_theme', next);
+        updateThemeIcon(next);
+        showToast('Switched to ' + next.toUpperCase() + ' mode');
+    }
+
+    function updateThemeIcon(t) {
+        const icon = document.getElementById('theme-icon');
+        if (icon) {
+            icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    function toggleDirection() {
+        const html = document.documentElement;
+        const current = html.getAttribute('dir') || 'ltr';
+        const next = current === 'rtl' ? 'ltr' : 'rtl';
+        html.setAttribute('dir', next);
+        localStorage.setItem('sh_dir', next);
+        showToast('Direction set to ' + next.toUpperCase());
+    }
+
+    (function initPreferences() {
+        const savedTheme = localStorage.getItem('sh_theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        const savedDir = localStorage.getItem('sh_dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+        }
+    })();
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast-msg');
+        const text = document.getElementById('toast-text');
+        if (text) text.textContent = msg;
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 3200);
+        }
+    }
+
+    function addToCart(title, price) {
+        cartCount++;
+        cartTotal += price;
+        const tray = document.getElementById('order-tray');
+        const countEl = document.getElementById('tray-count');
+        const textEl = document.getElementById('tray-text');
+        const totalEl = document.getElementById('tray-total');
+
+        if (countEl) countEl.textContent = cartCount + (cartCount === 1 ? ' Item' : ' Items');
+        if (textEl) textEl.textContent = title;
+        if (totalEl) totalEl.textContent = '$' + cartTotal.toFixed(2);
+        if (tray) tray.classList.add('show');
+
+        showToast('Added ' + title + ' to order ($' + price.toFixed(2) + ')');
+    }
+
+    function handleGazetteSubmit(e) {
+        e.preventDefault();
+        showToast('Welcome to The Grill Gazette! You are on our list.');
+        e.target.reset();
+    }
+
+    const themeBtn = document.getElementById('theme-btn');
+    if (themeBtn) themeBtn.onclick = toggleTheme;
+    const rtlBtn = document.getElementById('rtl-btn');
+    if (rtlBtn) rtlBtn.onclick = toggleDirection;
+
+    // Image fallback
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'https://images.unsplash.com/photo-1534790566855-4cb788d389ec?q=80&w=800&auto=format&fit=crop';
+        });
+    });
+</script>
+
+</body>
+</html>
